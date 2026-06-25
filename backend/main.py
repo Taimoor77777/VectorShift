@@ -4,10 +4,15 @@ from collections import defaultdict, deque
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI()
+origins = [
+    "https://vector-shift-xi-rouge.vercel.app",
+    "http://localhost:3000",  # keep for local dev
+]
+
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
-    allow_credentials=True,
+    allow_origins=origins,
+    allow_credentials=False,
     allow_methods=["*"],
     allow_headers=["*"],
 )
