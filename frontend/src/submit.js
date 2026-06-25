@@ -9,8 +9,9 @@ export const SubmitButton = () => {
 
         try {
 
+            const backendUrl = process.env.REACT_APP_BACKEND_URL || "http://localhost:8000";
             const response = await fetch(
-                "http://localhost:8000/pipelines/parse",
+                `${backendUrl}/pipelines/parse`,
                 {
                     method: "POST",
                     headers: {
